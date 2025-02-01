@@ -9,7 +9,7 @@ export const About = () => {
     >
       <div className="max-w-screen-xl m-auto">
         <div className="text-center">
-          <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-green">
+          <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-primaryColor rounded-sm">
             About
           </h2>
         </div>

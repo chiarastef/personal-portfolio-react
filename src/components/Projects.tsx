@@ -8,7 +8,7 @@ export const Projects = () => {
       className="font-sourceSans pt-[70px] md:pt-[80px] lg:pt-[90px] px-5 lg:px-24"
     >
       <div className="text-center">
-        <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-green">
+        <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-primaryColor rounded-sm">
           Projects
         </h2>
       </div>

@@ -9,7 +9,7 @@ export const Hero = () => {
         <br />
         <strong>Chiara Stefanelli</strong>
       </h1>
-      <h3 className="font-sourceCode uppercase text-xl md:text-3xl lg:text-4xl py-0.5 px-1 bg-[linear-gradient(to_right,white_50%,transparent_50%),linear-gradient(transparent_0%,#A9E07F_0%)] animate-highlight">
+      <h3 className="font-sourceCode uppercase text-xl md:text-3xl lg:text-4xl py-0.5 px-1 bg-[linear-gradient(to_right,white_50%,transparent_50%),linear-gradient(transparent_0%,#9feead_0%)] animate-highlight rounded-sm">
         front-end developer
       </h3>
     </section>

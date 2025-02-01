@@ -28,7 +28,7 @@ export const Navbar = () => {
   return (
     <AppBar
       position="fixed"
-      className="!shadow-sm !bg-gradient-to-r from-green to-yellow"
+      className="!shadow-sm !bg-gradient-to-r from-primaryColor to-secondaryColor"
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters>

@@ -7,8 +7,8 @@ export default {
       sourceCode: ["Source Code Pro", "sans-serif"],
     },
     colors: {
-      green: "#A9E07F",
-      yellow: "#F8F779",
+      primaryColor: "#9feead",
+      secondaryColor: "#e8faf6",
     },
     extend: {
       animation: {
