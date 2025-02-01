@@ -6,11 +6,11 @@ export default {
       sourceSans: ["'Source Sans 3'", "sans-serif"],
       sourceCode: ["Source Code Pro", "sans-serif"],
     },
-    colors: {
-      primaryColor: "#9feead",
-      secondaryColor: "#e8faf6",
-    },
     extend: {
+      colors: {
+        primaryColor: "#9feead",
+        secondaryColor: "#e8faf6",
+      },
       animation: {
         highlight: "highlight 1s linear forwards",
       },

@@ -6,15 +6,16 @@ interface ProjectTileProps {
 
 export const ProjectTile = (props: ProjectTileProps) => {
   return (
-    <div className="bg-secondaryColor px-2 py-2 rounded-sm">
+    <div className="bg-secondaryColor dark:!bg-neutral-950 px-2 py-2 rounded-sm">
       <img
         src={props.project.previewImg}
         alt={`Preview image for project ${props.project.name}`}
-        className=""
       />
       <div className="px-3 py-2 h-30 lg:h-36 xl:h-32 flex flex-col">
-        <div className="text-lg">{props.project.name}</div>
-        <div className="text-sm lg:text-base mb-2">
+        <div className="text-lg text-neutral-900 dark:text-neutral-100">
+          {props.project.name}
+        </div>
+        <div className="text-sm lg:text-base mb-2 text-neutral-900 dark:text-neutral-100">
           {props.project.description}
         </div>
         <div className="mt-auto">

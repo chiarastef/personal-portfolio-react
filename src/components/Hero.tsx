@@ -2,9 +2,9 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="h-dvh font-sourceSans flex flex-col justify-center items-center text-center"
+      className="bg-neutral-50 dark:bg-neutral-900 h-dvh font-sourceSans flex flex-col justify-center items-center text-center"
     >
-      <h1 className="text-3xl md:text-5xl lg:text-6xl">
+      <h1 className="text-neutral-900 dark:text-neutral-100  text-3xl md:text-5xl lg:text-6xl">
         Hi, I am
         <br />
         <strong>Chiara Stefanelli</strong>

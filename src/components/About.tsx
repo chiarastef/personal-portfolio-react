@@ -5,7 +5,7 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="xl:h-dvh font-sourceSans pt-[70px] md:pt-[80px] lg:pt-[90px] px-5 lg:px-24"
+      className="bg-neutral-50 dark:bg-neutral-900 xl:h-dvh font-sourceSans pt-[70px] md:pt-[80px] lg:pt-[90px] px-5 lg:px-24"
     >
       <div className="max-w-screen-xl m-auto">
         <div className="text-center">
@@ -14,7 +14,7 @@ export const About = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-4 lg:gap-14 xl:gap-40 mt-6 md:mt-10 lg:mt-14 2xl:mt-28">
+        <div className="text-neutral-900 dark:text-neutral-100 flex flex-col md:flex-row items-center gap-8 md:gap-4 lg:gap-14 xl:gap-40 mt-6 md:mt-10 lg:mt-14 2xl:mt-28">
           <div>
             {about.map((aboutParagraph, idx) => {
               return (

@@ -5,7 +5,7 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="font-sourceSans pt-[70px] md:pt-[80px] lg:pt-[90px] px-5 lg:px-24"
+      className="bg-neutral-50 dark:bg-neutral-900 font-sourceSans pt-[70px] md:pt-[80px] lg:pt-[90px] px-5 lg:px-24 pb-[70px] md:pb-[80px] lg:pb-[90px]"
     >
       <div className="text-center">
         <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-primaryColor rounded-sm">
