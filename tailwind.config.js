@@ -12,14 +12,18 @@ export default {
         secondaryColor: "#e8faf6",
       },
       animation: {
-        highlight: "highlight 1s linear forwards",
+        slidein300: "slidein 1s ease 300ms forwards",
+        slidein500: "slidein 1s ease 500ms forwards",
       },
       keyframes: {
-        highlight: {
-          from: { "background-size": "200%", "background-position": "0" },
+        slidein: {
+          from: {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
           to: {
-            "background-size": "200%",
-            "background-position": "-100%",
+            opacity: "1",
+            transform: "translateY(0)",
           },
         },
       },

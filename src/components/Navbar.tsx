@@ -12,25 +12,53 @@ import MenuItem from "@mui/material/MenuItem";
 import WbSunny from "@mui/icons-material/WbSunny";
 import Bedtime from "@mui/icons-material/Bedtime";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
-const pages = ["about", "projects"];
+import { ItalianFlag } from "../assets/icons/ItalianFlag";
+import { EnglishFlag } from "../assets/icons/EnglishFlag";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { strings } from "../loc/strings";
 
 interface NavbarProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  language: string;
+  changeLanguage: (langCode: string) => void;
 }
 
 export const Navbar = (props: NavbarProps) => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+  const sections = [
+    {
+      name: "about",
+      title: strings.Nav_About,
+    },
+    {
+      name: "projects",
+      title: strings.Nav_Projects,
+    },
+  ];
+
+  const [navMenu, setNavMenu] = React.useState<null | HTMLElement>(null);
+  const [langMenu, setLangMenu] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(langMenu);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+    setNavMenu(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setNavMenu(null);
+  };
+
+  const handleOpenLangMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setLangMenu(event.currentTarget);
+  };
+
+  const handleCloseLangMenu = () => {
+    setLangMenu(null);
+  };
+
+  const changeLanguage = (langCode: string) => {
+    props.changeLanguage(langCode);
+    handleCloseLangMenu();
   };
 
   const darkTheme = createTheme({
@@ -49,7 +77,7 @@ export const Navbar = (props: NavbarProps) => {
     <ThemeProvider theme={props.isDarkMode ? darkTheme : lightMode}>
       <AppBar
         position="fixed"
-        className="!shadow-sm !bg-gradient-to-r !from-primaryColor !to-secondaryColor"
+        className="!shadow-sm !bg-gradient-to-r !from-primaryColor !to-secondaryColor dark:!to-neutral-900"
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters>
@@ -82,7 +110,7 @@ export const Navbar = (props: NavbarProps) => {
               </IconButton>
               <Menu
                 id="menu-appbar"
-                anchorEl={anchorElNav}
+                anchorEl={navMenu}
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "left",
@@ -92,20 +120,20 @@ export const Navbar = (props: NavbarProps) => {
                   vertical: "top",
                   horizontal: "left",
                 }}
-                open={Boolean(anchorElNav)}
+                open={Boolean(navMenu)}
                 onClose={handleCloseNavMenu}
                 sx={{ display: { xs: "block", md: "none" } }}
               >
-                {pages.map((page) => (
+                {sections.map((section) => (
                   <MenuItem
-                    key={page}
+                    key={section.name}
                     onClick={handleCloseNavMenu}
                     className="bg-neutral-50 dark:bg-neutral-900"
                   >
                     <Typography
                       sx={{ textAlign: "center", textTransform: "capitalize" }}
                     >
-                      <a href={`#${page}`}>{page}</a>
+                      <a href={`#${section.name}`}>{section.title}</a>
                     </Typography>
                   </MenuItem>
                 ))}
@@ -127,12 +155,12 @@ export const Navbar = (props: NavbarProps) => {
                 fontSize: "1em",
               }}
             >
-              CS
+              Chiara
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              {pages.map((page) => (
+              {sections.map((section) => (
                 <Button
-                  key={page}
+                  key={section.name}
                   onClick={handleCloseNavMenu}
                   sx={{
                     color: "black",
@@ -141,18 +169,69 @@ export const Navbar = (props: NavbarProps) => {
                     lineHeight: "unset",
                   }}
                 >
-                  <a href={`#${page}`}>{page}</a>
+                  <a href={`#${section.name}`}>{section.title}</a>
                 </Button>
               ))}
             </Box>
-            <div>
-              <div className="cursor-pointer" onClick={props.toggleDarkMode}>
+            <div className="flex items-center gap-2">
+              <div
+                className="cursor-pointer"
+                onClick={props.toggleDarkMode}
+                title={
+                  props.isDarkMode
+                    ? strings.Nav_SetLightMode
+                    : strings.Nav_SetDarkMode
+                }
+              >
                 {props.isDarkMode ? (
-                  <Bedtime className="!text-neutral-900" />
+                  <WbSunny className="!text-neutral-900 dark:!text-neutral-200" />
                 ) : (
-                  <WbSunny className="!text-neutral-900" />
+                  <Bedtime className="!text-neutral-900 dark:!text-neutral-200" />
                 )}
               </div>
+              <Button
+                disableElevation
+                onClick={handleOpenLangMenu}
+                sx={{
+                  "& .MuiButton-endIcon": {
+                    marginLeft: "4px",
+                  },
+                }}
+                endIcon={
+                  <KeyboardArrowDownIcon className="!text-neutral-900 dark:!text-neutral-200" />
+                }
+                title={strings.Nav_ChangeLanguage}
+              >
+                {props.language === "en" ? <EnglishFlag /> : <ItalianFlag />}
+              </Button>
+              <Menu
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                anchorEl={langMenu}
+                open={open}
+                onClose={handleCloseLangMenu}
+              >
+                <MenuItem
+                  onClick={() => changeLanguage("en")}
+                  disableRipple
+                  title={strings.Nav_English}
+                >
+                  <EnglishFlag />
+                </MenuItem>
+                <MenuItem
+                  onClick={() => changeLanguage("it")}
+                  disableRipple
+                  title={strings.Nav_Italian}
+                >
+                  <ItalianFlag />
+                </MenuItem>
+              </Menu>
             </div>
           </Toolbar>
         </Container>

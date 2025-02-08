@@ -1,5 +1,5 @@
 import aboutLogo from "./../assets/about-logo.svg";
-import { about } from "../data/about";
+import { strings } from "../loc/strings";
 
 export const About = () => {
   return (
@@ -10,20 +10,12 @@ export const About = () => {
       <div className="max-w-screen-xl m-auto">
         <div className="text-center">
           <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-primaryColor rounded-sm">
-            About
+            {strings.Nav_About}
           </h2>
         </div>
 
         <div className="text-neutral-900 dark:text-neutral-100 flex flex-col md:flex-row items-center gap-8 md:gap-4 lg:gap-14 xl:gap-40 mt-6 md:mt-10 lg:mt-14 2xl:mt-28">
-          <div>
-            {about.map((aboutParagraph, idx) => {
-              return (
-                <p key={idx} className="pb-2">
-                  {aboutParagraph}
-                </p>
-              );
-            })}
-          </div>
+          <p className="whitespace-pre-line">{strings.About}</p>
           <img
             src={aboutLogo}
             alt=""

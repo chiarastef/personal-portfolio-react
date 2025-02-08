@@ -1,6 +1,6 @@
 export type Project = {
-  name: string;
-  description: string;
+  name: { en: string; it: string };
+  description: { en: string; it: string };
   githubUrl: string;
   liveUrl: string;
   previewImg: string;

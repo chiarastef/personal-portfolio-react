@@ -1,7 +1,12 @@
 import { ProjectTile } from "./elements/ProjectTile";
 import { projects } from "../data/projects";
+import { strings } from "../loc/strings";
 
-export const Projects = () => {
+interface ProjectsProps {
+  language: string;
+}
+
+export const Projects = (props: ProjectsProps) => {
   return (
     <section
       id="projects"
@@ -9,12 +14,18 @@ export const Projects = () => {
     >
       <div className="text-center">
         <h2 className="inline-block py-0.5 px-1 text-2xl md:text-3xl lg:text-4xl bg-primaryColor rounded-sm">
-          Projects
+          {strings.Nav_Projects}
         </h2>
       </div>
       <div className="max-w-screen-xl m-auto mt-5 md:mt-6 2xl:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {projects.map((project, idx) => {
-          return <ProjectTile key={idx} project={project} />;
+          return (
+            <ProjectTile
+              key={idx}
+              project={project}
+              language={props.language}
+            />
+          );
         })}
       </div>
     </section>

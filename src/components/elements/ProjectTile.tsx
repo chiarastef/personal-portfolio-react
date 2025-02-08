@@ -1,7 +1,9 @@
 import { Project } from "../../models/Project";
+import { strings } from "../../loc/strings";
 
 interface ProjectTileProps {
   project: Project;
+  language: string;
 }
 
 export const ProjectTile = (props: ProjectTileProps) => {
@@ -13,10 +15,10 @@ export const ProjectTile = (props: ProjectTileProps) => {
       />
       <div className="px-3 py-2 h-30 lg:h-36 xl:h-32 flex flex-col">
         <div className="text-lg text-neutral-900 dark:text-neutral-100">
-          {props.project.name}
+          {props.project.name[props.language === "it" ? "it" : "en"]}
         </div>
         <div className="text-sm lg:text-base mb-2 text-neutral-900 dark:text-neutral-100">
-          {props.project.description}
+          {props.project.description[props.language === "it" ? "it" : "en"]}
         </div>
         <div className="mt-auto">
           <a
@@ -24,14 +26,14 @@ export const ProjectTile = (props: ProjectTileProps) => {
             target="_blank"
             className="bg-primaryColor px-2 py-1 text-sm lg:text-base shadow-sm rounded-sm"
           >
-            GitHub repository
+            {strings.Projects_GithubRepository}
           </a>
           <a
             href={props.project.liveUrl}
             target="_blank"
             className="bg-primaryColor px-2 py-1 ms-3 text-sm lg:text-base shadow-sm rounded-sm"
           >
-            Live site
+            {strings.Projects_LiveSite}
           </a>
         </div>
       </div>
