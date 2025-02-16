@@ -20,4 +20,16 @@ export const it: Strings = {
 
   Footer_Linkedin: "Collegati con me su LinkedIn",
   Footer_Github: "Scopri i miei progetti su GitHub",
+  Footer_Email: "Contattami tramite email",
+
+  EmailForm_Title: "Contattami",
+  EmailForm_Text: "Inviami un messaggio e ti risponderò a breve",
+  EmailForm_NameLabel: "Nome",
+  EmailForm_EmailLabel: "Email",
+  EmailForm_MessaggeLabel: "Messaggio",
+  EmailForm_Cancel: "Cancella",
+  EmailForm_Send: "Invia",
+  EmailForm_SentSuccess: "Messaggio inviato! Ti risponderò il prima possibile",
+  EmailForm_SentFailed:
+    "Si è verificato un errore nell'invio del messaggio. Se l'errore persiste, posso essere contattata su ",
 };

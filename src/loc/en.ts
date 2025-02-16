@@ -20,4 +20,17 @@ export const en: Strings = {
 
   Footer_Linkedin: "Connect with me on LinkedIn",
   Footer_Github: "Check out my projects on GitHub",
+  Footer_Email: "Contattami tramite email",
+
+  EmailForm_Title: "Let's get in contact",
+  EmailForm_Text: "Send me a message and I'll get back to you shortly",
+  EmailForm_NameLabel: "Name",
+  EmailForm_EmailLabel: "Email",
+  EmailForm_MessaggeLabel: "Message",
+  EmailForm_Cancel: "Cancel",
+  EmailForm_Send: "Send",
+  EmailForm_SentSuccess:
+    "Message sent! I'll get back to you as soon as possible",
+  EmailForm_SentFailed:
+    "An error occurred sending the messagge. If the error persists, I can be contacted on ",
 };

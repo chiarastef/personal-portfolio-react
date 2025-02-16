@@ -21,6 +21,17 @@ export class Strings {
 
   public Footer_Linkedin: string;
   public Footer_Github: string;
+  public Footer_Email: string;
+
+  public EmailForm_Title: string;
+  public EmailForm_Text: string;
+  public EmailForm_NameLabel: string;
+  public EmailForm_EmailLabel: string;
+  public EmailForm_MessaggeLabel: string;
+  public EmailForm_Cancel: string;
+  public EmailForm_Send: string;
+  public EmailForm_SentSuccess: string;
+  public EmailForm_SentFailed: string;
 }
 
 export const strings = new LocalizedStrings({

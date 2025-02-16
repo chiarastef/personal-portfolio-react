@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
+import { EmailModal } from "./components/elements/EmailModal";
 import BeatLoader from "react-spinners/BeatLoader";
 import { strings } from "./loc/strings";
 
@@ -11,6 +12,8 @@ function App() {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [isDarkMode, setIsDarkMode] = React.useState<boolean>(false);
   const [language, setLanguage] = React.useState<string>("");
+  const [isEmailModalOpen, setIsEmailModalOpen] =
+    React.useState<boolean>(false);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prevState) => {
@@ -40,6 +43,14 @@ function App() {
     setLanguage(lang !== null ? lang : "en");
   };
 
+  const openEmailModal = () => {
+    setIsEmailModalOpen(true);
+  };
+
+  const closeEmailModal = () => {
+    setIsEmailModalOpen(false);
+  };
+
   React.useEffect(() => {
     setIsLoading(true);
     checkIfDarkMode();
@@ -61,10 +72,16 @@ function App() {
             language={language}
             changeLanguage={changeLanguage}
           />
-          <Hero />
+          <Hero language={language} openEmailModal={openEmailModal} />
           <About />
           <Projects language={language} />
-          <Footer language={language} />
+          <Footer language={language} openEmailModal={openEmailModal} />
+          <EmailModal
+            isDarkMode={isDarkMode}
+            isEmailModalOpen={isEmailModalOpen}
+            closeEmailModal={closeEmailModal}
+            language={language}
+          />
         </div>
       )}
     </>

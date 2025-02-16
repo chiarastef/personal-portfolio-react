@@ -25,5 +25,17 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(#e8faf6, #9feead);
+  background: #9feead;
+}
+
+#emailFormModal::-webkit-scrollbar {
+  width: 8px;
+}
+
+#emailFormModal::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+#emailFormModal::-webkit-scrollbar-thumb {
+  background: #9feead;
 }
