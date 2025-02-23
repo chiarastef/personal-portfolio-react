@@ -128,6 +128,7 @@ export const EmailModal = (props: EmailModalProps) => {
                       className="w-full flex-col sm:w-[calc(50%-1.25rem)] sm:flex-row"
                       required
                       label={strings.EmailForm_NameLabel}
+                      name="user_name"
                       margin="normal"
                       size="small"
                       sx={inputFormStyles}
@@ -136,6 +137,7 @@ export const EmailModal = (props: EmailModalProps) => {
                       className="w-full flex-col sm:w-[calc(50%-1.25rem)] sm:flex-row"
                       required
                       label={strings.EmailForm_EmailLabel}
+                      name="user_email"
                       type="email"
                       margin="normal"
                       size="small"
@@ -145,6 +147,7 @@ export const EmailModal = (props: EmailModalProps) => {
                   <TextField
                     className="w-full"
                     label={strings.EmailForm_MessaggeLabel}
+                    name="message"
                     required
                     multiline
                     rows={10}
