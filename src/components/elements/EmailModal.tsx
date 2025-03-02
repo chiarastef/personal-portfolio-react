@@ -1,5 +1,4 @@
 import React from "react";
-import emailjs from "@emailjs/browser";
 import Backdrop from "@mui/material/Backdrop";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -24,7 +23,9 @@ export const EmailModal = (props: EmailModalProps) => {
   const [isSendingSuccess, setIsSendingSuccess] =
     React.useState<boolean>(false);
   const [showAlert, setShowAlert] = React.useState<boolean>(false);
-  const formRef = React.useRef<HTMLFormElement>(null);
+  const nameInput = React.useRef<HTMLInputElement>(null);
+  const emailInput = React.useRef<HTMLInputElement>(null);
+  const messageInput = React.useRef<HTMLTextAreaElement>(null);
 
   const inputFormStyles: SxProps<Theme> = {
     "& input, & textarea": {
@@ -67,25 +68,30 @@ export const EmailModal = (props: EmailModalProps) => {
   const sendEmail = async (e: React.FormEvent) => {
     setIsSendingLoading(true);
     e.preventDefault();
-    if (formRef.current instanceof HTMLFormElement) {
-      try {
-        const sendEmail = await emailjs.sendForm(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          formRef.current,
-          {
-            publicKey: import.meta.env.VITE_EMAILJS_USER_ID,
-          }
-        );
-        if (sendEmail.status) {
-          setIsSendingSuccess(true);
-          props.closeEmailModal();
+
+    try {
+      const sendEmail = await fetch(
+        "https://chiarastefanelli.netlify.app/.netlify/functions/sendEmail",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: nameInput.current?.value,
+            email: emailInput.current?.value,
+            message: messageInput.current?.value,
+          }),
         }
-      } catch (error) {
+      );
+      if (sendEmail.ok) {
+        setIsSendingSuccess(true);
+        props.closeEmailModal();
+      } else {
         setIsSendingSuccess(false);
-        console.log(error);
       }
+    } catch (error) {
+      setIsSendingSuccess(false);
+      console.log(error);
     }
+
     setShowAlert(true);
     setIsSendingLoading(false);
   };
@@ -122,9 +128,10 @@ export const EmailModal = (props: EmailModalProps) => {
                 <div className="text-center text-neutral-900 dark:text-neutral-100 mt-2">
                   {strings.EmailForm_Text}
                 </div>
-                <form ref={formRef} onSubmit={sendEmail}>
+                <form onSubmit={sendEmail}>
                   <div className="flex flex-wrap sm:gap-5 justify-between">
                     <TextField
+                      inputRef={nameInput}
                       className="w-full flex-col sm:w-[calc(50%-1.25rem)] sm:flex-row"
                       required
                       label={strings.EmailForm_NameLabel}
@@ -134,6 +141,7 @@ export const EmailModal = (props: EmailModalProps) => {
                       sx={inputFormStyles}
                     />
                     <TextField
+                      inputRef={emailInput}
                       className="w-full flex-col sm:w-[calc(50%-1.25rem)] sm:flex-row"
                       required
                       label={strings.EmailForm_EmailLabel}
@@ -145,6 +153,7 @@ export const EmailModal = (props: EmailModalProps) => {
                     />
                   </div>
                   <TextField
+                    inputRef={messageInput}
                     className="w-full"
                     label={strings.EmailForm_MessaggeLabel}
                     name="message"
