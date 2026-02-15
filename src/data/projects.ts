@@ -28,19 +28,6 @@ export const projects: Project[] = [
     previewImg: multiStepForm,
   },
   {
-    name: {
-      en: "Air Travel Footprint",
-      it: "Impronta carbonica del viaggio aereo",
-    },
-    description: {
-      en: "Built with React, CSS Modules, Material UI, GoClimate API",
-      it: "Sviluppato con React, CSS Modules, Material UI, GoClimate API",
-    },
-    githubUrl: "https://github.com/chiarastef/air-travel-footprint",
-    liveUrl: "https://air-travel-footprint.netlify.app/",
-    previewImg: airTravelFootprint,
-  },
-  {
     name: { en: "New York Times Clone", it: "Clone del New York Times" },
     description: {
       en: "Built with React, React Router, CSS Modules, Axios, New York Times API",
