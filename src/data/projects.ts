@@ -2,7 +2,6 @@ import { Project } from "../models/Project";
 
 import countries from "../assets/projects/countries.png";
 import multiStepForm from "../assets/projects/multi-step-form.png";
-import airTravelFootprint from "../assets/projects/air-travel-footprint.png";
 import newYorkTimesClone from "../assets/projects/new-york-times-clone.png";
 import weatherForecast from "../assets/projects/weather-forecast.png";
 
