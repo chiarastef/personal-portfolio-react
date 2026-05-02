@@ -15,7 +15,7 @@ export const Footer = (props: FooterProps) => {
             openEmailModal={props.openEmailModal}
           />
         </div>
-        <div className="select-none mt-2 md:mt-0">© 2024 Chiara Stefanelli</div>
+        <div className="select-none mt-2 md:mt-0">© 2026 Chiara Stefanelli</div>
       </div>
     </footer>
   );
