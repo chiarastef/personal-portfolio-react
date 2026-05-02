@@ -10,7 +10,7 @@ export const it: Strings = {
   Nav_English: "Inglese",
 
   Hero_Introduction: "Ciao, mi chiamo",
-  Hero_FrontEndDev: "Sviluppatrice web front-end",
+  Hero_FrontEndDev: "Front-end developer",
 
   About: "Mi sono laureata in Lingue e Culture Straniere all'Università Carlo Bo di Urbino, ma durante gli anni universitari ho scoperto una passione per lo sviluppo front-end che è diventata il mio obiettivo principale. Sono sempre stata attratta dal punto di incontro tra tecnologia e design, e l'idea che il codice possa creare esperienze belle e intuitive è ciò che mi ha conquistata.\n\nDopo la laurea, ho approfondito le mie competenze attraverso il master in Front End Development di start2impact, una scuola di formazione online italiana specializzata nell'educazione digitale, e tanta pratica. Da allora lavoro come sviluppatrice, continuando a costruire le mie conoscenze di React e TypeScript, con un focus chiaro sul front-end. Cerco sempre nuovi modi per scrivere codice più pulito e creare esperienze utente migliori.",
     
